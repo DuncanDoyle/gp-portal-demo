@@ -9,7 +9,20 @@ spec:
       labels:
         route: portal-api
   config:
+    allowCredentials: true
+    allowHeaders:
+    - Authorization
+    - Content-Type
     allowMethods:
+    - OPTIONS
     - GET
+    - POST
+    - PUT
+    - PATCH
+    - DELETE
     allowOrigins:
     - exact: http://localhost:4000
+    - exact: http://localhost:4001
+    - exact: http://localhost:7007
+    - exact: http://developer.example.com
+    - exact: https://developer.example.com
