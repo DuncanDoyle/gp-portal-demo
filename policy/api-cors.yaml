@@ -1,0 +1,28 @@
+apiVersion: security.policy.gloo.solo.io/v2
+kind: CORSPolicy
+metadata:
+  name: api-cors
+  namespace: gloo-mesh-gateways
+spec:
+  applyToRoutes:
+  - route:
+      labels:
+        cors-policy: api
+  config:
+    allowCredentials: true
+    allowHeaders:
+    - Authorization
+    - Content-Type
+    - api-key
+    - api_key
+    allowMethods:
+    - OPTIONS
+    - GET
+    - POST
+    - PUT
+    - PATCH
+    - DELETE
+    allowOrigins:
+    - exact: http://localhost:3000
+    - exact: http://localhost:4000
+    - exact: http://localhost:7007
